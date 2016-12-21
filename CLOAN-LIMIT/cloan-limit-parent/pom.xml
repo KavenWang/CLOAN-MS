@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.uisftech.cloan</groupId>
+		<artifactId>cloan-cloud</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>cloan-ms-limit</artifactId>
+	<name>cloan-ms-limit</name>
+	<packaging>pom</packaging>
+	<modules>
+		<module>cloan-limit-facade</module>
+		<module>cloan-limit-service</module>
+		<module>cloan-limit-ws</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.uisftech.cloan</groupId>
+			<artifactId>cloan-common</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+</project>

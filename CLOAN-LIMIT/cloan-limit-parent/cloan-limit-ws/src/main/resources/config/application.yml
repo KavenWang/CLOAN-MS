@@ -1,0 +1,65 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration will be overriden by the Spring profile you use,
+# for example application-dev.yml if you use the "dev" profile.
+# ===================================================================
+
+
+management:
+    context-path: /management
+    health:
+        mail:
+            enabled: false # When using the MailService, configure an SMTP server and set this to true
+spring:
+    application:
+        name: cloanLimitMs
+    cloud:
+        consul:
+            discovery:
+                healthCheckPath: /management/health
+                instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    jackson:
+        serialization.write_dates_as_timestamps: false
+    jpa:
+        open-in-view: false
+        hibernate:
+            ddl-auto: none
+            naming:
+                strategy: org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy
+    messages:
+        basename: i18n/messages
+    mvc:
+        favicon:
+            enabled: false
+    thymeleaf:
+        mode: XHTML
+
+security:
+    basic:
+        enabled: false
+
+# ===================================================================
+# scfsorgms specific properties
+# ===================================================================
+
+cloanlimitms:
+    async:
+        corePoolSize: 2
+        maxPoolSize: 5
+        queueCapacity: 10000
+    mail:
+        from: cloanLimitMs@localhost
+    swagger:
+        title: SCFS Organization Manager Mico Service API
+        description: SCFS Organization Manager Mico Service API API documentation
+        version: 0.0.1
+        termsOfServiceUrl:
+        contactName:
+        contactUrl:
+        contactEmail:
+        license:
+        licenseUrl:
+    ribbon:
+        # comma seperated list of profiles to show a ribbon on the GUI
+        displayOnActiveProfiles: dev
